@@ -1,0 +1,28 @@
+{
+  "name": "racesimulator",
+  "version": "1.0.0",
+  "description": "Anki Overdrive demo: code to simulate a complete race",
+  "main": "simulator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oraclespainpresales/racesimulator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oraclespainpresales/racesimulator/issues"
+  },
+  "homepage": "https://github.com/oraclespainpresales/racesimulator#readme",
+  "dependencies": {
+    "async": "^2.1.4",
+    "command-line-args": "^4.0.1",
+    "command-line-usage": "^4.0.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.17.1",
+    "npmlog-ts": "0.0.1",
+    "restify": "^4.3.0"
+  }
+}
