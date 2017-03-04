@@ -119,6 +119,8 @@ var client = restify.createJsonClient({
   }
 });
 
+var counter = [];
+
 async.eachOfSeries(lines, (line, index, callback) => {
   var currentLine;
   var t2 = undefined;
@@ -153,9 +155,16 @@ async.eachOfSeries(lines, (line, index, callback) => {
       var urn = data[2];
       var payload = data[3];
       var payloadJSON = JSON.parse(payload);
+
+      var e = _.find(counter, { 'urn': urn });
+      if ( !e) {
+        counter.push( { urn: urn, messages: 0 } );
+        e = _.find(counter, { 'urn': urn });
+      }
+
       payloadJSON.raceId = raceId;
       payloadJSON.demozone = demozone;
-      log.verbose("", "[%d] - Sending [%s] to '%s' with %s", index, eventType, urn, JSON.stringify(payloadJSON));
+      log.verbose("", "[%d] - Sending [%s] messages to '%s' with %s", index, eventType, urn, JSON.stringify(payloadJSON));
       if (!options.verbose) {
         process.stdout.write(".");
       }
@@ -168,6 +177,7 @@ async.eachOfSeries(lines, (line, index, callback) => {
         }
         log.verbose("",'%d -> %j', res.statusCode, res.headers);
         log.verbose("",'%j', obj);
+        e.messages++;
       });
       callback(null);
       c(null);
@@ -178,4 +188,5 @@ async.eachOfSeries(lines, (line, index, callback) => {
     process.stdout.write("\n");
   }
   log.info("", "Processing completed");
+  log.info("", counter);
 });
