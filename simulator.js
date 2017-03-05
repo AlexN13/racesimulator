@@ -164,7 +164,7 @@ async.eachOfSeries(lines, (line, index, callback) => {
 
       payloadJSON.raceId = raceId;
       payloadJSON.demozone = demozone;
-      log.verbose("", "[%d] - Sending [%s] messages to '%s' with %s", index, eventType, urn, JSON.stringify(payloadJSON));
+      log.verbose("", "[%d] - Sending [%s] to '%s' with %s", index, eventType, urn, JSON.stringify(payloadJSON));
       if (!options.verbose) {
         process.stdout.write(".");
       }
@@ -188,5 +188,7 @@ async.eachOfSeries(lines, (line, index, callback) => {
     process.stdout.write("\n");
   }
   log.info("", "Processing completed");
-  log.info("", counter);
+  _.each(counter, (c) => {
+    log.info("", c.urn + ": " + c.messages);
+  });
 });
