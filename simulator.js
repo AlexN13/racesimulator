@@ -44,7 +44,7 @@ const sections = [
       },
       {
         name: 'demozone',
-        typeLabel: '[underline]{MADRID|BARCELONA|LISBON|PARIS|AMSTERDAM|MILAN|BERLIN|MUNICH}',
+        typeLabel: '[underline]{AMSTERDAM|ATHENS|BALTICS|BARCELONA|BERLIN|BUCHAREST|BUDAPEST|COLOGNE|COPENHAGEN|DUBAI|FRANKFURT|HELSINKI|KUWAIT|LISBON|LONDON|MADRID|MILAN|MOSCOW|MUNICH|OSLO|PARIS|RIYADH|ROME|STOCKHOLM|TELAVIV|VIENNA|WARSAW}',
         alias: 'd',
         type: String,
         description: 'Demozone used for the simulation'
@@ -62,7 +62,7 @@ const sections = [
     ]
   }
 ]
-const validDemozones = ['MADRID','BARCELONA','LISBON','PARIS','AMSTERDAM','MILAN','BERLIN','MUNICH'];
+const validDemozones = ['AMSTERDAM','ATHENS','BALTICS','BARCELONA','BERLIN','BUCHAREST','BUDAPEST','COLOGNE','COPENHAGEN','DUBAI','FRANKFURT','HELSINKI','KUWAIT','LISBON','LONDON','MADRID','MILAN','MOSCOW','MUNICH','OSLO','PARIS','RIYADH','ROME','STOCKHOLM','TELAVIV','VIENNA','WARSAW'];
 var options = undefined;
 
 try {
